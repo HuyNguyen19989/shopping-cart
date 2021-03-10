@@ -10,6 +10,7 @@ export class ProductListComponent implements OnInit {
 
   @Input() products!: Product[];
   @Output() onRemoveProduct = new EventEmitter();
+  @Output() onChangeQuantity = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +19,13 @@ export class ProductListComponent implements OnInit {
   removeProduct(productId: string): void {
     this.onRemoveProduct.emit(productId)
     
+  }
+  changeQuantity(id: string, quantity: string) {
+    let data  = {
+      id: id,
+      quantity: quantity
+    }
+    this.onChangeQuantity.emit(data)
   }
 
 }

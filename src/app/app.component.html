@@ -4,7 +4,7 @@
     <app-cart-header [numberItems]="numberItems"></app-cart-header>
   </header>
   <section class="container">
-    <app-product-list [products]="products" (onRemoveProduct)="removeProduct($event)"></app-product-list>
+    <app-product-list [products]="products" (onRemoveProduct)="removeProduct($event)" (onChangeQuantity)="changeQuantity($event)"></app-product-list>
     <section class="container">
       <app-promo-code></app-promo-code>
       <app-cart-summery></app-cart-summery>

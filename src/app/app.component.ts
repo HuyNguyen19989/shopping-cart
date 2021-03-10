@@ -25,10 +25,22 @@ export class AppComponent {
     },
   ]
 
-  numberItems: number = 4
+  numberItems: number = 0
+
+  subTotal: number = 0
 
   removeProduct(productId: string) {
     const index = this.products.findIndex(product => product.id === productId)
-    this.products.splice(index, 1)
+
+    if (index !== -1) {
+      this.products.splice(index, 1)
+    }
+  }
+  changeQuantity(data: {id: string; quantity: string}) {
+    let product = this.products.find(product => product.id === data.id)
+    if (product) {
+      product.quantity = parseInt(data.quantity) || 0
+    }
+
   }
 }
